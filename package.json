@@ -1,0 +1,41 @@
+{
+    "name": "@psec/pmlang",
+    "version": "0.0.1",
+    "description": "Parsec Math Language (PMLang) — mathematical expression engine for Rust and JS",
+    "author": {
+        "email": "naylour.developer@ya.ru",
+        "name": "Naylour",
+        "url": "https://github.com/naylour"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ParsecProjects/pmlangjs.git"
+    },
+    "bugs": {
+        "email": "naylour.developer@ya.ru",
+        "url": "https://github.com/ParsecProjects/pmlangjs/issues"
+    },
+    "homepage": "https://github.com/ParsecProjects/pmlangjs#readme",
+    "module": "src/index.ts",
+    "types": "build/index.d.ts",
+    "main": "build/index.js",
+    "files": [
+        "build"
+    ],
+    "type": "module",
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "scripts": {
+        "build": "bun build ./src/index.ts --outdir build",
+        "publish": "bun publish --access public",
+        "test": "bun test"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
