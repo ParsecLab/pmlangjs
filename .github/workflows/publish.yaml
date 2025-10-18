@@ -1,17 +1,19 @@
-name: Publish with Bun
+name: Publish to npm
 
 on:
   push:
     tags:
-      - 'v*'
+      - "v*" # публикация при пуше тега вроде v1.0.0
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Install Bun
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
@@ -24,5 +26,7 @@ jobs:
 
       - name: Publish to npm
         env:
-          BUN_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: bun publish --access public
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          bun publish --access public

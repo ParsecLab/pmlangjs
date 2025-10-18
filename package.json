@@ -1,6 +1,6 @@
 {
     "name": "@psec/pmlang",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Parsec Math Language (PMLang) — mathematical expression engine for Rust and JS",
     "author": {
         "email": "naylour.developer@ya.ru",
